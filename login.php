@@ -7,22 +7,25 @@ session_unset();
 
 if(isset($_POST['submit']))
 {
-    $email = $_POST['email'];
+    
+    $idintityId = $_POST['idintityId'];
     $password = $_POST['password'];
     $account = new AccountController();
-    $result = $account->login($email,$password);
+    $result = $account->login($idintityId,$password);
     if($result)
     {
         $row = $result->fetch_assoc();
-        $_SESSION['username'] = $email;
-        $_SESSION['name'] = $row['name'];
-        $_SESSION['userId'] = $row['id'];
-        $_SESSION['isAdmin'] = $row['isAdmin'];
+        $_SESSION['idintityId'] = $idintityId;
+        $_SESSION['isActive'] = true;
+        echo $idintityId;
+        // header('location:index.php');
+        // exit;
         echo'<script> window.location="index.php"; </script> ';
     }else
     {
-        header('location:login.php');
-        echo '<p class="text-white mt-5 bg-danger" >Invalid User Data!</p> ';
+       // header('location:login.php');
+       echo'<script> alert("خطأ في اسم المستخدم او كلمة المرور "); </script> ';
+        //echo '<p class="text-white mt-5 bg-danger" >Invalid Account Data!</p> ';
     }
 }
 
@@ -36,16 +39,16 @@ if(isset($_POST['submit']))
 
         <div class="mb-3">
           <label class="form-label"><b>رقم الهوية</b></label>
-          <input type="email" name="email" class="form-control">
+          <input type="text" name="idintityId" required class="form-control">
 
         </div>
 
         <div class="mb-3">
           <label class="form-label"><b>كلمة المرور</b></label>
-          <input type="password" name="password" class="form-control">
+          <input type="password" name="password" required class="form-control">
         </div>
         <div class="text-center">
-        <button type="submit" name="submit" class="btn btn-success ps-5 pe-5">تسجيل الدخول</button>
+        <input type="submit" name="submit" value="تسجيل الدخول" class="btn btn-success ps-5 pe-5"/>
         </div>
        
       </form>

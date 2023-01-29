@@ -14,22 +14,17 @@ class AccountController{
   {
       
   }
-  public function login($email,$password)
+  public function login($idintityId,$password)
    {
    
-    $query = "select * from  `users` where email  = '$email' and password = '$password' ";
+    $query = "select * from  `account` where `idintityId`  = '$idintityId' and `password` = '$password' ";
+    
     $result = $this->operation->selectData($query);
+    
     return $result;
       
    }
-   public function getUserDetails($id)
-   {
-   
-    $query = "select * from  `users` where `id`  = '$id'";
-    $result = $this->operation->selectData($query);
-    return $result;
-      
-   }
+  
    public function register($name ,$email ,$mobile,$password)
    {
    
@@ -38,13 +33,8 @@ class AccountController{
        return $result;
    }
 
-   public function update($id,$name ,$email ,$mobile)
-   {
    
-    $query = "UPDATE `users` SET `name`='$name',`email`='$email',`mobile`='$mobile' WHERE `id` ='$id' ";
-       $result =  $this->operation->ExcuteQuery($query);
-       return $result;
-   }
+   
 
 }
 
