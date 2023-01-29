@@ -20,7 +20,7 @@ require_once __DIR__ . "/../config.php";
 
 <body >
 
-
+<!-- 
 <nav  class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
   <a class="navbar-brand" href="<?php echo HTTP_PATH_ROOT;?>/index.php">مدارس رياض الإسلام</a>
@@ -33,9 +33,8 @@ require_once __DIR__ . "/../config.php";
           
 
           <?php
-          // $_SESSION['isAdmin'] = "1";
-          // $_SESSION['name'] = "Mahmoud";
-          if (isset($_SESSION['name']) && !empty($_SESSION['name'])) {
+        
+          if (isset($_SESSION['isActive']) && !empty($_SESSION['isActive'])) {
             $control = "";
             if ($_SESSION['isAdmin'] == "1") {
               $control = ' <li>
@@ -68,8 +67,8 @@ require_once __DIR__ . "/../config.php";
           </a></li>';
           }
           ?>
-          <!-- </a></li> -->
+         
         </ul>
     </div>
   </div>
-</nav>
+</nav> -->
