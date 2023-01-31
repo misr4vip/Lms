@@ -7,5 +7,6 @@ require_once __DIR__ . "/../config.php";
 <script src="<?php echo HTTP_PATH_ROOT.'/js/jquery-3.6.3.min.js';  ?>"></script>
 <script src="<?php echo HTTP_PATH_ROOT.'/js/bootstrap.bundle.min.js';  ?>"></script>
 <script src="<?php echo HTTP_PATH_ROOT.$mainScript;  ?>"></script>
+<?php echo $secondScript; ?>
   </body>
 </html>

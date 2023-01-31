@@ -5,6 +5,10 @@ include("_shared/header.php");
 
 if (isset($_SESSION['isActive']) && $_SESSION['isActive'] == 1) {
     $isActive = true;
+}else if (isset($_SESSION['isActive']) && $_SESSION['isActive'] == 0) {
+    $isActive = false;
+}else{
+    echo '<script>window.location = "login.php";</script>';
 }
 
 ?>
@@ -31,4 +35,5 @@ if (isset($_SESSION['isActive']) && $_SESSION['isActive'] == 1) {
 
 <?php
 $mainScript = "/myJs/account.js";
+$secondScript = '';
 include("_shared/footer.php"); ?>

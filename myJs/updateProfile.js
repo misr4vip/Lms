@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var request;
-    /// login form 
-    $('#loginForm').submit(function (e) {
+    
+    $('#formProfile').submit(function (e) {
         e.preventDefault();
         if (request) {
             request.abort();
@@ -20,7 +20,7 @@ $(document).ready(function () {
         $inputs.prop("disabled", true);
         // Fire off the request to /form.php
         request = $.ajax({
-            url: "../lms/pl/account/login.php",
+            url: "../lms/pl/account/updateProfile.php",
             type: "post",
             data: serializedData
         });
@@ -32,13 +32,10 @@ $(document).ready(function () {
             console.log("response :" + response);
             console.log("textStatus :" + textStatus);
             console.log("jqXHR :" + jqXHR);
-            if(response == 1)
-            {
-                window.location="index.php";
-            }else{
-
-                alert("خطأ في بيانات الدخول");
-            }
+          
+           
+                alert(response);
+           
         });
 
         // Callback handler that will be called on failure

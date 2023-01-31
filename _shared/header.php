@@ -31,15 +31,9 @@ require_once __DIR__ . "/../config.php";
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class=" collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto  text-right mb-2 mb-lg-0">
           <?php
           if (isset($_SESSION['isActive']) && $_SESSION['isActive'] == 1) {
-            // $control = "";
-            // if ($_SESSION['isAdmin'] == "1") {
-            //   $control = ' <li>
-            //   <a href="'.HTTP_PATH_ROOT.'/MainCategory/index.php" target="_blank" class="dropdown-item">Control Panel </a>
-            //   </li>';
-            // }  '.$control.'
             echo '
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,9 +43,11 @@ require_once __DIR__ . "/../config.php";
             <li>
             <a href="' . HTTP_PATH_ROOT . '/MyAdvertisment.php" class="dropdown-item">My Advertisment </a>
             </li>
+            <li><hr class="dropdown-divider"></li>
              <li>
              <a href="' . HTTP_PATH_ROOT . '/profile.php" class="dropdown-item">الملف الشخصي </a>
              </li>
+             <li><hr class="dropdown-divider"></li>
              <li>
              <a href="' . HTTP_PATH_ROOT . '/logout.php" class="dropdown-item">تسجيل خروج</a>
              </li>

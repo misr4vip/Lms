@@ -1,62 +1,47 @@
 <?php
-
-$title="profile"; 
-
-// if (!isset($_SESSION['userId'])) {
-//     header('location:login.php');
-// }
+$title = "profile";
+include_once("config.php");
 include_once("_shared/header.php");
-include_once("Controller/Account.php");
-$account = new AccountController();
-$id = $_SESSION['userId']; 
-$profileResult = $account->getUserDetails($id);
-$row = $profileResult->fetch_assoc();
-if(isset($_POST['submit']))
-{
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $mobile = $_POST['mobile'];
-    
-    $result =  $account->update($id,$name,$email,$mobile);
-    if( $result)
-    {
-        $_SESSION['username'] = $email;
-        $_SESSION['name'] = $name;
-        $_SESSION['userId'] = $id;
-        echo'<script> window.location="index.php"; </script> ';
-    }else
-    {
-        echo "Failed to update User ";
-    }
+if (!isset($_SESSION['isActive'])) {
+  header('location:login.php');
 }
-
 ?>
 
 <div class="container-fluid mt-5">
+  <h3>الملف الشخصي</h3>
+  <hr />
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-    <form  method="post">
-  <div class="mb-3">
-    <label class="form-label">name</label>
-    <input type="text" name="name" value="<?php echo $row['name']; ?>" class="form-control">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Email address</label>
-    <input type="email" name="email" value="<?php echo $row['email']; ?>" class="form-control">
+      <form id="formProfile" method="post">
+        <div class="mb-3">
+          <label class="form-label">الاسم باللغة العربية</label>
+          <input type="text" id="arabic_name" name="arabic_name" disabled class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">الاسم باللغة الانجليزية</label>
+          <input type="text" id="english_name" name="english_name" disabled class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">البريد الإلكتروني</label>
+          <input type="text" id="email" name="email" required class="form-control">
 
-  </div>
-  <div class="mb-3">
-    <label class="form-label">mobile</label>
-    <input type="text" name="mobile" value="<?php echo $row['mobile']; ?>" class="form-control">
-  </div>
-  
-
-  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-</form>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">الجوال</label>
+          <input type="text" id="mobile" name="mobile" required class="form-control">
+        </div>
+        <div class="col-md-12 text-center">
+          <input type="submit" name="submit" value="حفظ" class="btn btn-primary ps-5 pe-5" />
+        </div>
+      </form>
     </div>
     <div class="col-md-2"></div>
   </div>
 </div>
 
-  <?php include("_shared/footer.php"); ?>
+<?php
+$mainScript = "/myJs/getProfile.js";
+$secondScript = '<script src="'.HTTP_PATH_ROOT.'/myJs/updateProfile.js"></script>';
+include("_shared/footer.php");
+?>
