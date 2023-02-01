@@ -17,8 +17,8 @@ $data = ['idintityId' => $row['idintityId'],
  'arabic_name' => $row['arabic_name'],
   'english_name' => $row['english_name'],
    'email' => $row['email'],
-    'mobile' => $row['mobile'], 
-    'accountType' => $row['accountType']
+    'mobile' => $row['mobile']
+   
 ];
 header('Content-type: application/json');
 echo json_encode( $data);

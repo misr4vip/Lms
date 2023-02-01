@@ -31,4 +31,5 @@ include("_shared/header.php");
 
 <?php
 $mainScript = "/myJs/account.js";
+$secondScript = '';
  include("_shared/footer.php"); ?>

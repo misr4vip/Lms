@@ -49,6 +49,10 @@ require_once __DIR__ . "/../config.php";
              </li>
              <li><hr class="dropdown-divider"></li>
              <li>
+             <a href="' . HTTP_PATH_ROOT . '/resetPassword.php" class="dropdown-item">تغيير كلمة المرور </a>
+             </li>
+             <li><hr class="dropdown-divider"></li>
+             <li>
              <a href="' . HTTP_PATH_ROOT . '/logout.php" class="dropdown-item">تسجيل خروج</a>
              </li>
              </ul></li>';
