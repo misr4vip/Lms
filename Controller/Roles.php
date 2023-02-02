@@ -24,8 +24,18 @@ class RolesController{
     return $result;
       
    }
+   public function getRoles()
+   {
+   
+    $query = "select * from  `roles` ";
+    
+    $result = $this->operation->selectData($query);
+    
+    return $result;
+      
+   }
   
-   public function getRoles($id)
+   public function getRolesById($id)
    {
    
     $query = "select * from  `roles` where `id`  = '$id' ";

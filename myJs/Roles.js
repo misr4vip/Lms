@@ -1,9 +1,41 @@
 $(document).ready(function () {
     var request;
-    
+    getRoles();
+
+    ///////////////////////// get profile/////////////////////////////
+    function getRoles() {
+        request = $.ajax({
+            url: "../pl/role/index.php",
+            type: "GET",
+            data: null
+        });
+
+        // Callback handler that will be called on success
+        request.done(function (response, textStatus, jqXHR) {
+            $.each(JSON.parse(response), function (i,v) {
+               $('#roleTable').append('<tr><td>'+v["id"]+'</td><td>'+v["roleName"]+'</td><td><button class="btn btn-success">تعديل</button>|<button class="btn btn-success">حذف</button></td></tr>');
+            });
+            console.log("response :" + response);
+            console.log("textStatus :" + textStatus);
+            console.log("jqXHR :" + jqXHR);
+
+        });
+
+        // Callback handler that will be called on failure
+        request.fail(function (jqXHR, textStatus, errorThrown) {
+            // Log the error to the console
+            console.error(
+                "The following error occurred: " +
+                textStatus, errorThrown
+            );
+        });
+
+
+    }
+
     $('#roleAddForm').submit(function (e) {
         e.preventDefault();
-        if (request) { request.abort();}
+        if (request) { request.abort(); }
         var $form = $(this);
         // Let's select and cache all the fields
         var $inputs = $form.find("input, select, button, textarea");
@@ -19,23 +51,16 @@ $(document).ready(function () {
             type: "post",
             data: serializedData
         });
-
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR) {
-            // Log a message to the console
-            // console.log("response :" + response);
-            // console.log("textStatus :" + textStatus);
-            // console.log("jqXHR :" + jqXHR);
-            $inputs.prop("value","");
-                alert(response);
+            $inputs.prop("value", "");
+            alert(response);
         });
-
         // Callback handler that will be called on failure
         request.fail(function (jqXHR, textStatus, errorThrown) {
             // Log the error to the console
             console.error("The following error occurred: " + textStatus, errorThrown);
         });
-
         // Callback handler that will be called regardless
         // if the request failed or succeeded
         request.always(function () {
@@ -44,6 +69,6 @@ $(document).ready(function () {
         });
 
     });
-   
-      
+
+
 });
