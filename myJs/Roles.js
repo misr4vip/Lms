@@ -13,7 +13,7 @@ $(document).ready(function () {
         // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR) {
             $.each(JSON.parse(response), function (i,v) {
-               $('#roleTable').append('<tr><td>'+v["id"]+'</td><td>'+v["roleName"]+'</td><td><button class="btn btn-success">تعديل</button>|<button class="btn btn-success">حذف</button></td></tr>');
+               $('#roleTable').append('<tr><td>'+v["id"]+'</td><td>'+v["roleName"]+'</td><td><button class="btn btn-success m-1">تعديل</button> | <button class="btn btn-success m-1">حذف</button></td></tr>');
             });
             console.log("response :" + response);
             console.log("textStatus :" + textStatus);

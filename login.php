@@ -20,8 +20,9 @@ include("_shared/header.php");
           <input type="password" id="password" name="password" required class="form-control">
         </div>
         <div class="text-center">
-        <input type="submit" name="loginSubmit"  class="btn btn-success ps-5 pe-5" value="تسجيل الدخول"/>
+        <input type="submit" name="loginSubmit"  class="btn btn-success ps-5 pe-5" value="تسجيل الدخول"/> | <input type="button" name="resetPassSubmit"  class="btn btn-danger ps-5 pe-5" value="نسيت كلمة المرور"/>
         </div>
+       
        
       </form>
     </div>

@@ -51,4 +51,7 @@ if(isset($_POST['submit']))
   </div>
 </div>
 
-  <?php include("_shared/footer.php"); ?>
+  <?php
+  $mainScript = "/myJs/account.js";
+  $secondScript = '';
+  include("_shared/footer.php"); ?>

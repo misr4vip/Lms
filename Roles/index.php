@@ -1,5 +1,6 @@
 <?php
-$title="create Role";
+$title="Roles";
+
 include("../_shared/header.php");
 ?>
 

@@ -14,7 +14,7 @@ session_unset();
             $_SESSION['idintityId'] = $row['idintityId'];
             $_SESSION['arabic_name'] = $row['arabic_name'];
             $_SESSION['english_name'] = $row['english_name'];
-            $_SESSION['accountType'] = $row['accountType'];
+          //  $_SESSION['accountType'] = $row['accountType'];
             $_SESSION['isActive'] = $row['isActive'];
             echo true;
         }else
