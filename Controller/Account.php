@@ -52,13 +52,14 @@ class AccountController{
        return $result;
    }
    
-//    public function updateAccount($idintityId,$arabic_name,$english_name,$email ,$mobile)
-//    {
-   
-//     $query = "update `account` SET `arabic_name`='$arabic_name',`english_name`='$english_name',`email`='$email',`mobile`='$mobile' WHERE `idintityId`='$idintityId'";
-//        $result =  $this->operation->ExcuteQuery($query);
-//        return $result;
-//    }
+
+   public function forgetPassword($idintityId,$email){
+    $query = "select * from  `account` where `idintityId`  = '$idintityId' and `email` = '$email' ";
+    
+    $result = $this->operation->selectData($query);
+    
+    return $result;
+   }
    
 
 }

@@ -7,7 +7,7 @@ include("_shared/header.php");
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <form  id="loginForm">
+      <form  id="forgetPasswordForm">
 
         <div class="mb-3">
           <label class="form-label"><b>رقم الهوية</b></label>
@@ -15,12 +15,12 @@ include("_shared/header.php");
 
         </div>
         <div class="mb-3">
-          <label class="form-label"><b>كلمة المرور</b></label>
-          <input type="password" id="password" name="password" required class="form-control">
+          <label class="form-label"><b>الايميل المسجل </b></label>
+          <input type="email" id="email" name="email" required class="form-control">
         </div>
         <div class="text-center">
-        <input type="submit" name="loginSubmit" id="loginSubmit"  class="btn btn-success ps-5 pe-5" value="تسجيل الدخول"/> | 
-        <a href="ForgetPassword.php" name="forgetPassSubmit"  class="btn btn-danger ps-5 pe-5" >نسيت كلمة المرور</a>
+        <input type="submit" name="forgetPasswordSubmit" required  class="btn btn-success ps-5 pe-5" value="ارسال"/>
+       
         </div>
        
        

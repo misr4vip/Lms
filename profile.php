@@ -32,7 +32,7 @@ if (!isset($_SESSION['isActive'])) {
           <input type="text" id="mobile" name="mobile" required class="form-control">
         </div>
         <div class="col-md-12 text-center">
-          <input type="submit" name="submit" value="حفظ" class="btn btn-primary ps-5 pe-5" />
+          <input type="submit" name="profilesubmit" value="حفظ" class="btn btn-primary ps-5 pe-5" />
         </div>
       </form>
     </div>
@@ -41,7 +41,7 @@ if (!isset($_SESSION['isActive'])) {
 </div>
 
 <?php
-$mainScript = "/myJs/getProfile.js";
+$mainScript = "/myJs/account.js";
 $secondScript = '<script src="'.HTTP_PATH_ROOT.'/myJs/updateProfile.js"></script>';
 include("_shared/footer.php");
 ?>
