@@ -87,7 +87,7 @@ $(document).ready(function () {
 
         // Serialize the data in the form
         var serializedData = $form.serialize();
-
+        serializedData  +="&forgetPasswordsubmit=forgetPasswordsubmit";
         // Let's disable the inputs for the duration of the Ajax request.
         // Note: we disable elements AFTER the form data has been serialized.
         // Disabled form elements will not be serialized.
@@ -108,7 +108,7 @@ $(document).ready(function () {
             console.log("jqXHR :" + jqXHR);
             if(response == 1)
             {
-                window.location="index.php";
+                window.location="login.php";
             }else{
 
                 alert(response);
@@ -218,10 +218,10 @@ $(document).ready(function () {
 
         // Callback handler that will be called regardless
         // if the request failed or succeeded
-        request.always(function () {
-            // Reenable the inputs
-            $inputs.prop("disabled", false);
-        });
+        // request.always(function () {
+        //     // Reenable the inputs
+        //     $inputs.prop("disabled", false);
+        // });
 
     });
    

@@ -42,6 +42,6 @@ if (!isset($_SESSION['isActive'])) {
 
 <?php
 $mainScript = "/myJs/account.js";
-$secondScript = '<script src="'.HTTP_PATH_ROOT.'/myJs/updateProfile.js"></script>';
+$secondScript = '';
 include("_shared/footer.php");
 ?>

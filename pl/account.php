@@ -55,6 +55,19 @@ if (isset($_POST['profilesubmit'])) {
         echo "فشل في عمليه التحديث";
     }
 }
+if (isset($_POST['forgetPasswordsubmit'])) {
+    $idintityId = $_POST['idintityId'];
+    $email = $_POST['email'];
+   
+
+    $result = $account->forgetPassword($idintityId, $email);
+    if ($result) {
+
+        echo 'سيتم ارسال كلمة المرور الي حسابك اذا ما كانت البيانات صحيحة';
+    } else {
+        echo "عفوا لم نجد حساب بهذه البيانات";
+    }
+}
 
 
 ?>
