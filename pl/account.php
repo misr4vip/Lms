@@ -69,5 +69,17 @@ if (isset($_POST['forgetPasswordsubmit'])) {
     }
 }
 
+if (isset($_POST['resetPasswordsubmit'])) {
+    $idintityId = $_SESSION['idintityId'];
+    $oldPassword = $_POST['oldPassword'];
+    $newPassword = $_POST['newPassword'];
 
+    $result = $account->forgetPassword($idintityId, $oldPassword,$newPassword);
+    if ($result) {
+
+        echo 'سيتم ارسال كلمة المرور الي حسابك اذا ما كانت البيانات صحيحة';
+    } else {
+        echo "عفوا لم نجد حساب بهذه البيانات";
+    }
+}
 ?>

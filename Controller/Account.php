@@ -52,7 +52,24 @@ class AccountController{
        return $result;
    }
    
+   public function resetPassword($idintityId,$oldPassword,$newPassword )
+   {
+   
+      $query = "select COUNT(*) from  `account` where `idintityId`  = '$idintityId' and `email` = '$oldPassword' ";
+      
+    $result = $this->operation->selectData($query);
+    if (mysqli_num_rows($result) > 0) {
 
+      $query = "update `account` set  `password`='$newPassword'WHERE `idintityId`='$idintityId'";
+       $eresult =  $this->operation->ExcuteQuery($query);
+       return $eresult;
+    }else if(mysqli_num_rows($result) == 0){
+      echo "cann't found data!";
+    }else{
+      echo false;
+    }
+   }
+   
    public function forgetPassword($idintityId,$email){
     $query = "select COUNT(*) from  `account` where `idintityId`  = '$idintityId' and `email` = '$email' ";
       
